@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Chat - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Welcome to College Chat 💬</h2>
+    <input type="text" id="name" placeholder="Enter your name" required />
+    <input type="text" id="branch" placeholder="Enter your branch (e.g., CSE)" required />
+    <button onclick="joinChat()">Join Chat</button>
+  </div>
+
+  <script>
+    function joinChat() {
+      const name = document.getElementById('name').value.trim();
+      const branch = document.getElementById('branch').value.trim();
+      
+      if (!name || !branch) {
+        alert('Please enter both name and branch!');
+        return;
+      }
+
+      // Save user info to sessionStorage
+      sessionStorage.setItem('userName', name);
+      sessionStorage.setItem('userBranch', branch);
+
+      // Redirect to chat page
+      window.location.href = 'chat.html';
+    }
+  </script>
+</body>
+</html>
